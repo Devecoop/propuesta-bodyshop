@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodyshop Parts Manager - Low-Fidelity Wireframes & User Flow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom styles for low-fidelity wireframe look */
+        .wireframe-box {
+            border: 2px dashed #9ca3af;
+            background-color: #f9fafb;
+        }
+        .wireframe-ui {
+            font-family: monospace, sans-serif;
+        }
+        .external-pill-ccc {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            border: 1px solid #bae6fd;
+        }
+        .external-pill-pt {
+            background-color: #fef3c7;
+            color: #b45309;
+            border: 1px solid #fde68a;
+        }
+        .external-pill-wa {
+            background-color: #dcfce7;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+        }
+        .internal-pill {
+            background-color: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 wireframe-ui min-h-screen flex flex-col">
+
+    <!-- Header Navigation -->
+    <header class="bg-white border-b-2 border-gray-300 p-3 sm:p-4 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+            <div class="flex items-center space-x-3 w-full sm:w-auto justify-between sm:justify-start">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-gray-800 text-white font-bold p-1.5 sm:p-2 text-xs sm:text-sm rounded">[WIRE-FRAME]</div>
+                    <div>
+                        <h1 class="font-bold text-sm sm:text-lg leading-tight">Automotive Parts Traceability System</h1>
+                        <p class="text-[10px] sm:text-xs text-gray-500">Low-Fidelity Interactive Flow & Screen Prototypes</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View Switcher -->
+            <div class="flex items-center space-x-1 sm:space-x-2 bg-gray-200 p-1 rounded-lg border border-gray-300 w-full sm:w-auto justify-center">
+                <button id="tab-flow-btn" onclick="switchMainTab('flow')" class="flex-1 sm:flex-initial px-2 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold rounded bg-white shadow-sm text-gray-900 border border-gray-300">
+                    <i data-lucide="git-merge" class="inline w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1"></i> 1. Flow
+                </button>
+                <button id="tab-screens-btn" onclick="switchMainTab('screens')" class="flex-1 sm:flex-initial px-2 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold rounded text-gray-600 hover:text-gray-900">
+                    <i data-lucide="layout" class="inline w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1"></i> 2. Screens (11)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Legend & Context Bar -->
+    <div class="bg-white border-b border-gray-200 px-3 sm:px-4 py-2 text-[11px] sm:text-xs text-gray-600">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
+            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span class="font-semibold">Legend:</span>
+                <span class="external-pill-ccc px-1.5 sm:px-2 py-0.5 rounded font-bold text-[10px] sm:text-xs">CCC ONE</span>
+                <span class="external-pill-pt px-1.5 sm:px-2 py-0.5 rounded font-bold text-[10px] sm:text-xs">PartsTrader</span>
+                <span class="external-pill-wa px-1.5 sm:px-2 py-0.5 rounded font-bold text-[10px] sm:text-xs">WhatsApp</span>
+                <span class="internal-pill px-1.5 sm:px-2 py-0.5 rounded font-bold text-[10px] sm:text-xs">Internal Shop</span>
+            </div>
+            <div class="text-gray-500 text-[10px] sm:text-xs italic">
+                * Click any step or pick a screen to view wireframe
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-6">
+
+        <!-- ================= VIEW 1: USER FLOW ================= -->
+        <section id="view-flow" class="space-y-6">
+            <div class="bg-white p-4 sm:p-6 border-2 border-gray-300 rounded-lg shadow-sm">
+                <h2 class="text-base sm:text-xl font-bold mb-2 flex items-center">
+                    <i data-lucide="workflow" class="mr-2 w-5 h-5"></i> Overall Product User Flow
+                </h2>
+                <p class="text-xs sm:text-sm text-gray-600 mb-6">
+                    This diagram shows how data and tasks transition from initial CCC ONE import through supplier WhatsApp queries, supplier web response, part tracking, final CCC ONE sync, and client reporting.
+                </p>
+
+                <!-- Flow Diagram (Horizontal Scrollable) -->
+                <div class="overflow-x-auto pb-4">
+                    <div class="flex items-start space-x-4 min-w-[1400px] p-2">
+                        
+                        <!-- Step 1: Login -->
+                        <div onclick="navigateToScreen('screen-1')" class="cursor-pointer flex-1 bg-gray-50 border-2 border-gray-400 p-3 rounded text-center hover:border-black transition-all shadow-sm group">
+                            <div class="text-xs font-bold text-gray-400 uppercase mb-1">Step 01</div>
+                            <div class="font-bold text-sm mb-1 group-hover:underline">1. Login Screen</div>
+                            <span class="internal-pill px-2 py-0.5 rounded text-[10px] block my-1">Internal Shop</span>
+                            <p class="text-[11px] text-gray-500 mt-2">Authentication & Session Access</p>
+                        </div>
+
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 self-center flex-shrink-0"></i>
+
+                        <!-- Step 2: Dashboard -->
+                        <div onclick="navigateToScreen('screen-2')" class="cursor-pointer flex-1 bg-gray-50 border-2 border-gray-400 p-3 rounded text-center hover:border-black transition-all shadow-sm group">
+                            <div class="text-xs font-bold text-gray-400 uppercase mb-1">Step 02</div>
+                            <div class="font-bold text-sm mb-1 group-hover:underline">2. Main Dashboard</div>
+                            <span class="internal-pill px-2 py-0.5 rounded text-[10px] block my-1">Internal Shop</span>
+                            <p class="text-[11px] text-gray-500 mt-2">Active ROs, Alerts & Quick Actions</p>
+                        </div>
+
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 self-center flex-shrink-0"></i>
+
+                        <!-- Step 3: New RO -->
+                        <div onclick="navigateToScreen('screen-3')" class="cursor-pointer flex-1 bg-gray-50 border-2 border-gray-400 p-3 rounded text-center hover:border-black transition-all shadow-sm group">
+                            <div class="text-xs font-bold text-gray-400 uppercase mb-1">Step 03</div>
+                            <div class="font-bold text-sm mb-1 group-hover:underline">3. New RO / Import</div>
+                            <span class="external-pill-ccc px-2 py-0.5 rounded text-[10px] block my-1">CCC ONE API / Export</span>
+                            <p class="text-[11px] text-gray-500 mt-2">Ingest Estimate Data & Part List</p>
+                        </div>
+
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 self-center flex-shrink-0"></i>
+
+                        <!-- Step 4: Supplier Selection -->
+                        <div onclick="navigateToScreen('screen-4')" class="cursor-pointer flex-1 bg-gray-50 border-2 border-gray-400 p-3 rounded text-center hover:border-black transition-all shadow-sm group">
+                            <div class="text-xs font-bold text-gray-400 uppercase mb-1">Step 04</div>
+                            <div class="font-bold text-sm mb-1 group-hover:underline">4. Supplier Match</div>
+                            <span class="external-pill-pt px-2 py-0.5 rounded text-[10px] block my-1">PartsTrader / Scoring</span>
+                            <p class="text-[11px] text-gray-500 mt-2">Load .EBM & Best Price Grouping</p>
+                        </div>
+
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 self-center flex-shrink-0"></i>
+
+                        <!-- Step 5: RO Details -->
+                        <div onclick="navigateToScreen('screen-5')" class="cursor-pointer flex-1 bg-gray-50 border-2 border-gray-400 p-3 rounded text-center hover:border-black transition-all shadow-sm group">
+                            <div class="text-xs font-bold text-gray-400 uppercase mb-1">Step 05</div>
+                            <div class="font-bold text-sm mb-1 group-hover:underline">5. RO Detail View</div>
+                            <span class="internal-pill px-2 py-0.5 rounded text-[10px] block my-1">Internal Shop</span>
+                            <p class="text-[11px] text-gray-500 mt-2">Central Parts List & Audit Trail</p>
+                        </div>
+
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 self-center flex-shrink-0"></i>
+
+                        <!-- Step 7: WhatsApp Query -->
+                        <div onclick="navigateToScreen('screen-7')" class="cursor-pointer flex-1 bg-gray-50 border-2 border-gray-400 p-3 rounded text-center hover:border-black transition-all shadow-sm group">
+                            <div class="text-xs font-bold text-gray-400 uppercase mb-1">Step 06</div>
+                            <div class="font-bold text-sm mb-1 group-hover:underline">7. WA Inquiry Modal</div>
+                            <span class="external-pill-wa px-2 py-0.5 rounded text-[10px] block my-1">WhatsApp Pre-filled</span>
+                            <p class="text-[11px] text-gray-500 mt-2">Copy or Click wa.me External Link</p>
+                        </div>
+
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 self-center flex-shrink-0"></i>
+
+                        <!-- Step 8: External Form -->
+                        <div onclick="navigateToScreen('screen-8')" class="cursor-pointer flex-1 bg-purple-50 border-2 border-purple-400 p-3 rounded text-center hover:border-purple-800 transition-all shadow-sm group">
+                            <div class="text-xs font-bold text-purple-600 uppercase mb-1">Step 07</div>
+                            <div class="font-bold text-sm mb-1 group-hover:underline text-purple-900">8. Supplier Web Portal</div>
+                            <span class="bg-purple-200 text-purple-800 px-2 py-0.5 rounded text-[10px] font-bold block my-1">External Mobile Web</span>
+                            <p class="text-[11px] text-purple-700 mt-2">Fill Price, ETA & Attach Photo</p>
+                        </div>
+
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 self-center flex-shrink-0"></i>
+
+                        <!-- Step 9: Parts Receiving -->
+                        <div onclick="navigateToScreen('screen-9')" class="cursor-pointer flex-1 bg-gray-50 border-2 border-gray-400 p-3 rounded text-center hover:border-black transition-all shadow-sm group">
+                            <div class="text-xs font-bold text-gray-400 uppercase mb-1">Step 08</div>
+                            <div class="font-bold text-sm mb-1 group-hover:underline">9. Parts Tracking Board</div>
+                            <span class="internal-pill px-2 py-0.5 rounded text-[10px] block my-1">Internal Shop</span>
+                            <p class="text-[11px] text-gray-500 mt-2">Status Board & Damage Check</p>
+                        </div>
+
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 self-center flex-shrink-0"></i>
+
+                        <!-- Step 10: RO Closure -->
+                        <div onclick="navigateToScreen('screen-10')" class="cursor-pointer flex-1 bg-gray-50 border-2 border-gray-400 p-3 rounded text-center hover:border-black transition-all shadow-sm group">
+                            <div class="text-xs font-bold text-gray-400 uppercase mb-1">Step 09</div>
+                            <div class="font-bold text-sm mb-1 group-hover:underline">10. RO Final Closure</div>
+                            <span class="external-pill-ccc px-2 py-0.5 rounded text-[10px] block my-1">Sync back CCC ONE</span>
+                            <p class="text-[11px] text-gray-500 mt-2">Confirm Values & Rewrite Estimate</p>
+                        </div>
+
+                        <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 self-center flex-shrink-0"></i>
+
+                        <!-- Step 11: Final Report -->
+                        <div onclick="navigateToScreen('screen-11')" class="cursor-pointer flex-1 bg-gray-50 border-2 border-gray-400 p-3 rounded text-center hover:border-black transition-all shadow-sm group">
+                            <div class="text-xs font-bold text-gray-400 uppercase mb-1">Step 10</div>
+                            <div class="font-bold text-sm mb-1 group-hover:underline">11. Final Report</div>
+                            <span class="internal-pill px-2 py-0.5 rounded text-[10px] block my-1">Internal / Insurance</span>
+                            <p class="text-[11px] text-gray-500 mt-2">Generate PDF & Photo Audit</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flow Summary Guidance -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-blue-50 border border-blue-200 p-4 rounded">
+                    <h3 class="font-bold text-blue-900 text-sm mb-1 flex items-center">
+                        <i data-lucide="download-cloud" class="mr-1.5 w-4 h-4"></i> Ingestion Stage
+                    </h3>
+                    <p class="text-xs text-blue-800">
+                        RO and parts list ingested directly via CCC ONE API or manual export file uploads. PartsTrader quotes matched automatically.
+                    </p>
+                </div>
+                <div class="bg-emerald-50 border border-emerald-200 p-4 rounded">
+                    <h3 class="font-bold text-emerald-900 text-sm mb-1 flex items-center">
+                        <i data-lucide="message-square" class="mr-1.5 w-4 h-4"></i> Supplier Interaction
+                    </h3>
+                    <p class="text-xs text-emerald-800">
+                        Semi-automated WhatsApp communication. Operator triggers message, supplier responds via frictionless no-login mobile link.
+                    </p>
+                </div>
+                <div class="bg-purple-50 border border-purple-200 p-4 rounded">
+                    <h3 class="font-bold text-purple-900 text-sm mb-1 flex items-center">
+                        <i data-lucide="check-check" class="mr-1.5 w-4 h-4"></i> Reception & CCC ONE Sync
+                    </h3>
+                    <p class="text-xs text-purple-800">
+                        Parts checked upon arrival with photo verification. Final actual costs rewritten back into CCC ONE estimate automatically.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= VIEW 2: WIREFRAME SCREENS ================= -->
+        <section id="view-screens" class="hidden space-y-6">
+
+            <!-- Screen Selector Header Bar -->
+            <div class="bg-white p-3 border-2 border-gray-300 rounded flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2">
+                <span class="font-bold text-xs uppercase tracking-wider text-gray-600 flex items-center">
+                    <i data-lucide="mouse-pointer" class="mr-1.5 w-4 h-4"></i> Select Screen Wireframe:
+                </span>
+                <select id="screen-selector" onchange="navigateToScreen(this.value)" class="bg-gray-50 border border-gray-400 text-xs font-bold py-2 px-3 rounded focus:outline-none w-full sm:w-auto">
+                    <option value="screen-1">1. Login</option>
+                    <option value="screen-2">2. Dashboard / Inicio</option>
+                    <option value="screen-3">3. Nueva Repair Order / Cotización (Import)</option>
+                    <option value="screen-4">4. Selección de Proveedores & Combinaciones</option>
+                    <option value="screen-5">5. Detalle de RO Central</option>
+                    <option value="screen-6">6. Directorio de Proveedores</option>
+                    <option value="screen-7">7. Consulta a Proveedor por WhatsApp (Modal)</option>
+                    <option value="screen-8">8. Formulario Externo Proveedor (Mobile Portal)</option>
+                    <option value="screen-9">9. Recepción y Seguimiento de Partes (Kanban)</option>
+                    <option value="screen-10">10. Cierre de RO & Sincronización CCC ONE</option>
+                    <option value="screen-11">11. Informe Final Completo</option>
+                </select>
+            </div>
+
+            <!-- WIREFRAME CONTAINER -->
+            <div class="bg-white border-2 border-gray-400 rounded-lg p-4 sm:p-6 min-h-[600px] shadow-sm relative overflow-hidden">
+
+                <!-- SCREEN 1: LOGIN -->
+                <div id="screen-1" class="wireframe-screen space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-300 pb-3 gap-2">
+                        <div>
+                            <span class="internal-pill px-2 py-0.5 text-xs font-bold rounded">Internal View</span>
+                            <h2 class="text-lg sm:text-xl font-bold mt-1">1. Login Screen</h2>
+                        </div>
+                        <span class="text-xs text-gray-400 font-mono">Screen ID: SCR-01</span>
+                    </div>
+
+                    <div class="max-w-md mx-auto my-6 sm:my-12 p-5 sm:p-8 border-2 border-gray-400 rounded bg-gray-50 space-y-4">
+                        <div class="text-center space-y-1 mb-6">
+                            <div class="inline-block p-3 border-2 border-gray-400 bg-white rounded mb-2">
+                                <i data-lucide="wrench" class="w-8 h-8 text-gray-700"></i>
+                            </div>
+                            <h3 class="font-bold text-base sm:text-lg">[ SHOP PARTS MANAGER ]</h3>
+                            <p class="text-xs text-gray-500">Internal Access - Body Repair Center</p>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-700">Email Address:</label>
+                            <input type="email" value="operator@bodyshop.com" class="w-full p-2 border-2 border-gray-400 rounded text-xs bg-white" readonly>
+                        </div>
+
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-xs">
+                                <label class="font-bold text-gray-700">Password:</label>
+                                <a href="#" onclick="alert('Wireframe simulation: Password reset email sent.')" class="text-xs text-gray-500 underline">Forgot password?</a>
+                            </div>
+                            <input type="password" value="••••••••••••" class="w-full p-2 border-2 border-gray-400 rounded text-xs bg-white" readonly>
+                        </div>
+
+                        <button onclick="navigateToScreen('screen-2')" class="w-full py-2.5 bg-gray-800 text-white font-bold text-xs rounded hover:bg-black transition-colors flex items-center justify-center">
+                            Sign In <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1"></i>
+                        </button>
+
+                        <div class="text-[11px] text-gray-400 text-center pt-2 border-t border-gray-200">
+                            System v2.4 • Connected to CCC ONE API Node
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREEN 2: DASHBOARD -->
+                <div id="screen-2" class="wireframe-screen hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-300 pb-3 gap-2">
+                        <div>
+                            <span class="internal-pill px-2 py-0.5 text-xs font-bold rounded">Internal View</span>
+                            <h2 class="text-lg sm:text-xl font-bold mt-1">2. Main Dashboard / Inicio</h2>
+                        </div>
+                        <div class="flex flex-wrap gap-2 w-full sm:w-auto">
+                            <button onclick="navigateToScreen('screen-3')" class="flex-1 sm:flex-initial px-3 py-1.5 bg-black text-white text-xs font-bold rounded flex items-center justify-center">
+                                <i data-lucide="plus" class="w-3.5 h-3.5 mr-1"></i> New RO / Quote
+                            </button>
+                            <button onclick="navigateToScreen('screen-6')" class="flex-1 sm:flex-initial px-3 py-1.5 border-2 border-gray-400 text-xs font-bold rounded flex items-center justify-center hover:bg-gray-100">
+                                <i data-lucide="users" class="w-3.5 h-3.5 mr-1"></i> Suppliers
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reminders / Action Alerts Bar -->
+                    <div class="bg-amber-50 border-2 border-amber-300 p-3 rounded space-y-2">
+                        <div class="font-bold text-xs text-amber-900 flex items-center">
+                            <i data-lucide="bell" class="w-4 h-4 mr-1 flex-shrink-0"></i> Action Required Reminders (3 Pending)
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-xs">
+                            <div class="bg-white p-2 border border-amber-300 rounded flex justify-between items-center">
+                                <span><strong>RO #4582:</strong> 2 parts pending query</span>
+                                <button onclick="navigateToScreen('screen-7')" class="text-[10px] bg-amber-200 px-1.5 py-0.5 rounded font-bold underline flex-shrink-0">Send WA</button>
+                            </div>
+                            <div class="bg-white p-2 border border-amber-300 rounded flex justify-between items-center">
+                                <span><strong>RO #4580:</strong> Front bumper damaged</span>
+                                <button onclick="navigateToScreen('screen-9')" class="text-[10px] bg-amber-200 px-1.5 py-0.5 rounded font-bold underline flex-shrink-0">Review</button>
+                            </div>
+                            <div class="bg-white p-2 border border-amber-300 rounded flex justify-between items-center">
+                                <span><strong>RO #4578:</strong> All parts received</span>
+                                <button onclick="navigateToScreen('screen-10')" class="text-[10px] bg-amber-200 px-1.5 py-0.5 rounded font-bold underline flex-shrink-0">Close RO</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active RO Table -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-sm">Active Repair Orders (ROs)</h3>
+                            <span class="text-xs text-gray-500">4 Active Jobs</span>
+                        </div>
+                        <div class="border-2 border-gray-300 rounded overflow-x-auto">
+                            <table class="w-full text-left text-xs min-w-[650px]">
+                                <thead class="bg-gray-100 border-b-2 border-gray-300 font-bold">
+                                    <tr>
+                                        <th class="p-2.5">RO #</th>
+                                        <th class="p-2.5">Client / Vehicle</th>
+                                        <th class="p-2.5">CCC ONE Import</th>
+                                        <th class="p-2.5">Parts Status</th>
+                                        <th class="p-2.5">General Status</th>
+                                        <th class="p-2.5 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <tr class="hover:bg-gray-50 cursor-pointer" onclick="navigateToScreen('screen-5')">
+                                        <td class="p-2.5 font-bold">#4582</td>
+                                        <td class="p-2.5">J. Doe - Toyota Corolla 2022</td>
+                                        <td class="p-2.5"><span class="external-pill-ccc px-1.5 py-0.5 rounded text-[10px]">API Sync</span></td>
+                                        <td class="p-2.5">2 / 5 Received</td>
+                                        <td class="p-2.5"><span class="bg-yellow-100 text-yellow-800 border border-yellow-300 px-2 py-0.5 rounded text-[10px] font-bold">In Quoting</span></td>
+                                        <td class="p-2.5 text-right"><span class="underline font-bold text-gray-700">Open &rarr;</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 cursor-pointer" onclick="navigateToScreen('screen-5')">
+                                        <td class="p-2.5 font-bold">#4581</td>
+                                        <td class="p-2.5">M. Smith - Ford Ranger 2021</td>
+                                        <td class="p-2.5"><span class="internal-pill px-1.5 py-0.5 rounded text-[10px]">File Export</span></td>
+                                        <td class="p-2.5">4 / 4 Received</td>
+                                        <td class="p-2.5"><span class="bg-blue-100 text-blue-800 border border-blue-300 px-2 py-0.5 rounded text-[10px] font-bold">Ready</span></td>
+                                        <td class="p-2.5 text-right"><span class="underline font-bold text-gray-700">Open &rarr;</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 cursor-pointer" onclick="navigateToScreen('screen-5')">
+                                        <td class="p-2.5 font-bold">#4580</td>
+                                        <td class="p-2.5">A. Garcia - Honda Civic 2020</td>
+                                        <td class="p-2.5"><span class="external-pill-ccc px-1.5 py-0.5 rounded text-[10px]">API Sync</span></td>
+                                        <td class="p-2.5">1 / 3 Damaged</td>
+                                        <td class="p-2.5"><span class="bg-red-100 text-red-800 border border-red-300 px-2 py-0.5 rounded text-[10px] font-bold">Issue Flagged</span></td>
+                                        <td class="p-2.5 text-right"><span class="underline font-bold text-gray-700">Open &rarr;</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Finished History Section -->
+                    <div class="space-y-2 pt-4 border-t border-gray-300">
+                        <h3 class="font-bold text-sm text-gray-600">Finished Repair Orders History (Last 30 Days)</h3>
+                        <div class="border border-gray-300 rounded p-3 bg-gray-50 text-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-gray-600">
+                            <span>RO #4570 - Honda HR-V (Closed & Synced to CCC ONE on Oct 2, 2026)</span>
+                            <button onclick="navigateToScreen('screen-11')" class="underline font-bold flex-shrink-0">View Final Report</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREEN 3: NEW RO / IMPORT -->
+                <div id="screen-3" class="wireframe-screen hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-300 pb-3 gap-2">
+                        <div>
+                            <span class="external-pill-ccc px-2 py-0.5 text-xs font-bold rounded">CCC ONE Import Stage</span>
+                            <h2 class="text-lg sm:text-xl font-bold mt-1">3. New Repair Order / Ingestion</h2>
+                        </div>
+                        <button onclick="navigateToScreen('screen-2')" class="px-2.5 py-1 border border-gray-400 text-xs font-bold rounded">Back to Dashboard</button>
+                    </div>
+
+                    <!-- Dual Import Methods -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <!-- Alternative A: API Sync -->
+                        <div class="border-2 border-gray-400 p-4 rounded bg-gray-50 space-y-3">
+                            <div class="flex items-center space-x-2">
+                                <span class="bg-black text-white text-xs px-2 py-0.5 rounded font-bold">Option A</span>
+                                <h3 class="font-bold text-sm">Automatic API Sync (CCC ONE)</h3>
+                            </div>
+                            <p class="text-xs text-gray-600">Direct background fetch from CCC ONE estimator cloud.</p>
+                            
+                            <div class="p-3 bg-white border border-gray-300 rounded text-xs space-y-2">
+                                <label class="font-bold block">Enter Estimate ID or Select Auto-Detected Claim:</label>
+                                <div class="flex flex-col sm:flex-row gap-2">
+                                    <input type="text" value="CCC-EST-88491" class="flex-1 p-2 border border-gray-400 rounded" readonly>
+                                    <button onclick="alert('API Call Triggered: Metadata and parts fetched from CCC ONE.')" class="px-3 py-2 bg-blue-600 text-white font-bold rounded text-xs whitespace-nowrap">Sync API</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alternative B: Manual File Upload -->
+                        <div class="border-2 border-gray-400 p-4 rounded bg-gray-50 space-y-3">
+                            <div class="flex items-center space-x-2">
+                                <span class="bg-gray-700 text-white text-xs px-2 py-0.5 rounded font-bold">Option B</span>
+                                <h3 class="font-bold text-sm">File Export Upload (No API)</h3>
+                            </div>
+                            <p class="text-xs text-gray-600">Upload export file generated by estimator software.</p>
+
+                            <div class="wireframe-box p-4 text-center rounded space-y-2 cursor-pointer" onclick="alert('Wireframe simulation: Export file uploaded successfully.')">
+                                <i data-lucide="upload" class="w-6 h-6 mx-auto text-gray-500"></i>
+                                <div class="text-xs font-bold">Drag & Drop CCC ONE Export File (.xml / .json)</div>
+                                <div class="text-[10px] text-gray-400">or click to browse local files</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Ingested Data Preview Box -->
+                    <div class="border-2 border-gray-400 p-4 rounded space-y-4 bg-white">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b pb-2 gap-2">
+                            <h3 class="font-bold text-sm">Preview Ingested RO Data</h3>
+                            <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">Status: Ready to Create</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                            <div>
+                                <span class="text-gray-500 block">RO Number:</span>
+                                <strong class="text-sm">#4582</strong>
+                            </div>
+                            <div>
+                                <span class="text-gray-500 block">Client / Owner:</span>
+                                <strong>John Doe (Ins: StateFarm)</strong>
+                            </div>
+                            <div>
+                                <span class="text-gray-500 block">Vehicle Details:</span>
+                                <strong>2022 Toyota Corolla - VIN: 4T1B...8812</strong>
+                            </div>
+                        </div>
+
+                        <!-- Extracted Parts List -->
+                        <div class="space-y-2">
+                            <span class="font-bold text-xs">Ingested Parts List (5 items required):</span>
+                            <div class="border border-gray-300 rounded overflow-x-auto">
+                                <table class="w-full text-xs text-left min-w-[450px]">
+                                    <thead class="bg-gray-100 border-b font-bold">
+                                        <tr>
+                                            <th class="p-2">Part Code</th>
+                                            <th class="p-2">Description</th>
+                                            <th class="p-2">Qty</th>
+                                            <th class="p-2">Type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y text-gray-700">
+                                        <tr><td class="p-2 font-mono">52119-02900</td><td class="p-2">Front Bumper Cover</td><td class="p-2">1</td><td class="p-2">OEM</td></tr>
+                                        <tr><td class="p-2 font-mono">81110-02S50</td><td class="p-2">Headlight Assembly RH</td><td class="p-2">1</td><td class="p-2">OEM</td></tr>
+                                        <tr><td class="p-2 font-mono">53111-02B10</td><td class="p-2">Grille Radiator Upper</td><td class="p-2">1</td><td class="p-2">Aftermarket</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end space-x-2 pt-2">
+                            <button onclick="navigateToScreen('screen-4')" class="w-full sm:w-auto px-4 py-2 bg-black text-white text-xs font-bold rounded">
+                                Proceed to Supplier Matching &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREEN 4: SUPPLIER SELECTION -->
+                <div id="screen-4" class="wireframe-screen hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-300 pb-3 gap-2">
+                        <div>
+                            <span class="external-pill-pt px-2 py-0.5 text-xs font-bold rounded">PartsTrader & Scoring Stage</span>
+                            <h2 class="text-lg sm:text-xl font-bold mt-1">4. Supplier Selection & Best Combinations</h2>
+                        </div>
+                        <span class="text-xs font-bold bg-gray-200 px-2 py-1 rounded">RO #4582</span>
+                    </div>
+
+                    <!-- Import PartsTrader .EBM file option -->
+                    <div class="bg-amber-50 border-2 border-amber-300 p-3 rounded flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div class="text-xs">
+                            <strong class="text-amber-900 block">PartsTrader Integration (.EBM File)</strong>
+                            <span class="text-amber-800">Upload quotes file from PartsTrader to automatically match best prices and multi-part vendors.</span>
+                        </div>
+                        <button onclick="alert('Wireframe simulation: .EBM PartsTrader quotes file imported.')" class="px-3 py-1.5 border border-amber-500 bg-white text-amber-900 text-xs font-bold rounded hover:bg-amber-100 whitespace-nowrap">
+                            Upload .EBM File
+                        </button>
+                    </div>
+
+                    <!-- Automated Combination Recommendation -->
+                    <div class="border-2 border-gray-400 p-4 rounded bg-gray-50 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-sm flex items-center">
+                                <i data-lucide="sparkles" class="w-4 h-4 mr-1 text-gray-700 flex-shrink-0"></i> Smart Combination Engine
+                            </h3>
+                            <span class="text-xs bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold px-2 py-0.5 rounded">Recommended</span>
+                        </div>
+
+                        <div class="bg-white p-3 border-2 border-emerald-600 rounded text-xs space-y-2">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                                <div>
+                                    <strong class="text-sm">Grouped Option 1: AutoParts Express (4 Parts) + City Lights (1 Part)</strong>
+                                    <p class="text-gray-500 text-[11px]">Vendor has 4 requested parts in stock. Consolidates shipping costs and logistics.</p>
+                                </div>
+                                <div class="text-right w-full sm:w-auto flex sm:block justify-between items-center">
+                                    <span class="text-base font-bold">$1,240.00</span>
+                                    <button onclick="navigateToScreen('screen-5')" class="mt-0 sm:mt-1 px-3 py-1 bg-emerald-700 text-white font-bold text-[10px] rounded block">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Full Manual Selection Table -->
+                    <div class="space-y-2">
+                        <h3 class="font-bold text-sm">Full Parts Matrix & Manual Vendor Selection</h3>
+                        <div class="border-2 border-gray-300 rounded overflow-x-auto">
+                            <table class="w-full text-left text-xs min-w-[600px]">
+                                <thead class="bg-gray-100 border-b-2 font-bold">
+                                    <tr>
+                                        <th class="p-2">Part No. & Description</th>
+                                        <th class="p-2">Supplier Candidate</th>
+                                        <th class="p-2">Supplier Rating</th>
+                                        <th class="p-2">Unit Price</th>
+                                        <th class="p-2 text-center">Assign</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y">
+                                    <tr>
+                                        <td class="p-2 font-mono">52119-02900 - Front Bumper</td>
+                                        <td class="p-2">AutoParts Express</td>
+                                        <td class="p-2 text-amber-600">★ 4.8 / 5.0</td>
+                                        <td class="p-2 font-bold">$420.00</td>
+                                        <td class="p-2 text-center"><input type="radio" name="p1" checked></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 font-mono">52119-02900 - Front Bumper</td>
+                                        <td class="p-2">National Body Parts</td>
+                                        <td class="p-2 text-amber-600">★ 4.1 / 5.0</td>
+                                        <td class="p-2 font-bold">$445.00</td>
+                                        <td class="p-2 text-center"><input type="radio" name="p1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 font-mono">81110-02S50 - Headlight Assembly</td>
+                                        <td class="p-2">City Lights Depot</td>
+                                        <td class="p-2 text-amber-600">★ 4.9 / 5.0</td>
+                                        <td class="p-2 font-bold">$310.00</td>
+                                        <td class="p-2 text-center"><input type="radio" name="p2" checked></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end space-x-2">
+                        <button onclick="navigateToScreen('screen-5')" class="w-full sm:w-auto px-4 py-2 bg-black text-white text-xs font-bold rounded">
+                            Confirm Suppliers & Save RO &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SCREEN 5: RO DETAIL CENTRAL -->
+                <div id="screen-5" class="wireframe-screen hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-300 pb-3 gap-2">
+                        <div>
+                            <span class="internal-pill px-2 py-0.5 text-xs font-bold rounded">Central Shop Screen</span>
+                            <h2 class="text-lg sm:text-xl font-bold mt-1">5. Repair Order Detail View (RO #4582)</h2>
+                        </div>
+                        <div class="flex flex-wrap gap-2 w-full sm:w-auto">
+                            <button onclick="navigateToScreen('screen-7')" class="flex-1 sm:flex-initial px-3 py-1.5 bg-emerald-700 text-white text-xs font-bold rounded flex items-center justify-center">
+                                <i data-lucide="message-square" class="w-3.5 h-3.5 mr-1"></i> Query WA
+                            </button>
+                            <button onclick="navigateToScreen('screen-9')" class="flex-1 sm:flex-initial px-3 py-1.5 border-2 border-gray-400 text-xs font-bold rounded hover:bg-gray-100 flex items-center justify-center">
+                                Tracking Board
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- RO Overview Header -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-gray-50 p-4 border-2 border-gray-300 rounded text-xs">
+                        <div>
+                            <span class="text-gray-500 block">Vehicle / Owner:</span>
+                            <strong class="text-sm">Toyota Corolla 2022</strong>
+                            <span class="block text-gray-500">John Doe</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-500 block">General Status:</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 border border-yellow-300 px-2 py-0.5 rounded font-bold mt-1">Parts Requested (2/5 Recv)</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-500 block">CCC ONE Link:</span>
+                            <span class="external-pill-ccc px-1.5 py-0.5 rounded text-[10px] inline-block mt-1">Synced - EST#88491</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-500 block">Estimated Completion:</span>
+                            <strong class="text-sm">Oct 14, 2026</strong>
+                        </div>
+                    </div>
+
+                    <!-- Requested Parts List Table -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-sm">Requested Parts Lifecycle List</h3>
+                            <div class="flex space-x-2 text-xs">
+                                <span class="px-2 py-0.5 bg-gray-200 rounded font-bold">Pending: 3</span>
+                                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold">Received: 2</span>
+                            </div>
+                        </div>
+
+                        <div class="border-2 border-gray-300 rounded overflow-x-auto">
+                            <table class="w-full text-left text-xs min-w-[650px]">
+                                <thead class="bg-gray-100 border-b-2 font-bold">
+                                    <tr>
+                                        <th class="p-2">Code</th>
+                                        <th class="p-2">Description</th>
+                                        <th class="p-2">Qty</th>
+                                        <th class="p-2">Supplier</th>
+                                        <th class="p-2">Price</th>
+                                        <th class="p-2">Status</th>
+                                        <th class="p-2 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y">
+                                    <tr>
+                                        <td class="p-2 font-mono">52119-02900</td>
+                                        <td class="p-2">Front Bumper Cover</td>
+                                        <td class="p-2">1</td>
+                                        <td class="p-2">AutoParts Express</td>
+                                        <td class="p-2">$420.00</td>
+                                        <td class="p-2"><span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-[10px] font-bold">In Transit</span></td>
+                                        <td class="p-2 text-right"><button onclick="navigateToScreen('screen-7')" class="text-blue-700 underline font-bold">Query WA</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 font-mono">81110-02S50</td>
+                                        <td class="p-2">Headlight Assembly RH</td>
+                                        <td class="p-2">1</td>
+                                        <td class="p-2">City Lights Depot</td>
+                                        <td class="p-2">$310.00</td>
+                                        <td class="p-2"><span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded text-[10px] font-bold">Received OK</span></td>
+                                        <td class="p-2 text-right"><button onclick="navigateToScreen('screen-9')" class="text-gray-500 underline">View Photo</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 font-mono">53111-02B10</td>
+                                        <td class="p-2">Grille Radiator Upper</td>
+                                        <td class="p-2">1</td>
+                                        <td class="p-2">AutoParts Express</td>
+                                        <td class="p-2">$115.00</td>
+                                        <td class="p-2"><span class="bg-red-100 text-red-800 px-2 py-0.5 rounded text-[10px] font-bold">Damaged</span></td>
+                                        <td class="p-2 text-right"><button onclick="navigateToScreen('screen-9')" class="text-red-700 underline font-bold">Flag Issue</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Movement Audit History -->
+                    <div class="space-y-2 pt-2 border-t border-gray-300">
+                        <h3 class="font-bold text-xs text-gray-600">RO Movement & Activity History</h3>
+                        <div class="bg-gray-50 border border-gray-300 p-3 rounded text-[11px] sm:text-xs font-mono space-y-1 text-gray-600 overflow-x-auto">
+                            <div>• [10/06 14:20] Headlight Assembly RH status updated to: Received OK (Photo attached)</div>
+                            <div>• [10/05 09:15] WhatsApp inquiry sent to AutoParts Express via link trigger</div>
+                            <div>• [10/04 11:00] RO created via CCC ONE API import</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREEN 6: SUPPLIER DIRECTORY -->
+                <div id="screen-6" class="wireframe-screen hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-300 pb-3 gap-2">
+                        <div>
+                            <span class="internal-pill px-2 py-0.5 text-xs font-bold rounded">Internal View</span>
+                            <h2 class="text-lg sm:text-xl font-bold mt-1">6. Suppliers Directory & Scoring</h2>
+                        </div>
+                        <button onclick="alert('Wireframe simulation: Add supplier form modal opened.')" class="w-full sm:w-auto px-3 py-1.5 bg-black text-white text-xs font-bold rounded">
+                            + Add New Supplier
+                        </button>
+                    </div>
+
+                    <div class="border-2 border-gray-300 rounded overflow-x-auto">
+                        <table class="w-full text-left text-xs min-w-[700px]">
+                            <thead class="bg-gray-100 border-b-2 font-bold">
+                                <tr>
+                                    <th class="p-2.5">Supplier Name</th>
+                                    <th class="p-2.5">Contact Person</th>
+                                    <th class="p-2.5">WhatsApp Number</th>
+                                    <th class="p-2.5">Rating / Score</th>
+                                    <th class="p-2.5">Notes</th>
+                                    <th class="p-2.5">Purchase History</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y">
+                                <tr>
+                                    <td class="p-2.5 font-bold">AutoParts Express</td>
+                                    <td class="p-2.5">Carlos Perez</td>
+                                    <td class="p-2.5"><span class="external-pill-wa px-2 py-0.5 rounded font-mono text-[10px]">+54 9 11 4432-8811</span></td>
+                                    <td class="p-2.5 text-amber-600 font-bold">★ 4.8 / 5.0</td>
+                                    <td class="p-2.5 text-gray-500">Fast delivery, good OEM stock.</td>
+                                    <td class="p-2.5">142 Parts Ordered</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 font-bold">City Lights Depot</td>
+                                    <td class="p-2.5">Laura Gomez</td>
+                                    <td class="p-2.5"><span class="external-pill-wa px-2 py-0.5 rounded font-mono text-[10px]">+54 9 11 5590-1200</span></td>
+                                    <td class="p-2.5 text-amber-600 font-bold">★ 4.9 / 5.0</td>
+                                    <td class="p-2.5 text-gray-500">Specialist in headlights and mirrors.</td>
+                                    <td class="p-2.5">89 Parts Ordered</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 font-bold">National Body Parts</td>
+                                    <td class="p-2.5">Roberto Ruiz</td>
+                                    <td class="p-2.5"><span class="external-pill-wa px-2 py-0.5 rounded font-mono text-[10px]">+54 9 11 3321-9900</span></td>
+                                    <td class="p-2.5 text-amber-600 font-bold">★ 4.1 / 5.0</td>
+                                    <td class="p-2.5 text-gray-500">Slower delivery times on aftermarket.</td>
+                                    <td class="p-2.5">34 Parts Ordered</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SCREEN 7: WHATSAPP QUERY MODAL -->
+                <div id="screen-7" class="wireframe-screen hidden space-y-6">
+                    <div class="flex justify-between items-center border-b border-gray-300 pb-3">
+                        <div>
+                            <span class="external-pill-wa px-2 py-0.5 text-xs font-bold rounded">WhatsApp Action Screen</span>
+                            <h2 class="text-lg sm:text-xl font-bold mt-1">7. WhatsApp Supplier Inquiry Trigger</h2>
+                        </div>
+                        <button onclick="navigateToScreen('screen-5')" class="px-2 py-1 text-xs border rounded">Close</button>
+                    </div>
+
+                    <!-- Clarification Warning Box -->
+                    <div class="bg-amber-100 border-2 border-amber-400 p-3 rounded text-xs space-y-1 text-amber-900">
+                        <div class="font-bold flex items-center">
+                            <i data-lucide="info" class="w-4 h-4 mr-1 flex-shrink-0"></i> Semi-Automated Communication Notice:
+                        </div>
+                        <p>Messages are <strong>not sent automatically in the background</strong>. The operator must click to copy or open WhatsApp directly with the pre-configured text and magic link.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <!-- Query Configurator -->
+                        <div class="space-y-3 text-xs border border-gray-300 p-4 rounded bg-gray-50">
+                            <h3 class="font-bold text-sm">Select Parts to Inquire</h3>
+                            
+                            <div class="space-y-1">
+                                <label class="font-bold text-gray-600">Selected Supplier:</label>
+                                <input type="text" value="AutoParts Express (+54 9 11 4432-8811)" class="w-full p-2 border border-gray-300 rounded bg-white" readonly>
+                            </div>
+
+                            <div class="space-y-2 pt-2">
+                                <label class="font-bold text-gray-600">Select RO #4582 Parts:</label>
+                                <div class="space-y-1">
+                                    <label class="flex items-center space-x-2 bg-white p-2 border rounded">
+                                        <input type="checkbox" checked>
+                                        <span>52119-02900 - Front Bumper Cover</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-white p-2 border rounded">
+                                        <input type="checkbox" checked>
+                                        <span>53111-02B10 - Grille Radiator Upper</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generated Message Preview -->
+                        <div class="space-y-3 text-xs border-2 border-emerald-400 p-4 rounded bg-emerald-50">
+                            <h3 class="font-bold text-sm text-emerald-900 flex items-center">
+                                <i data-lucide="message-square" class="w-4 h-4 mr-1"></i> Generated Pre-filled WA Message
+                            </h3>
+
+                            <div class="p-3 bg-white border border-emerald-300 rounded font-mono text-[11px] leading-relaxed text-gray-800 space-y-2 overflow-x-auto">
+                                <p>Hi <strong>AutoParts Express</strong>, we are quoting parts for <strong>RO #4582 (Toyota Corolla)</strong> and need to confirm availability for:</p>
+                                <p>- Part #52119-02900 (Front Bumper)<br>- Part #53111-02B10 (Grille Upper)</p>
+                                <p>Please enter pricing, delivery ETA, and photos using this link:<br>
+                                <span class="text-blue-600 underline font-bold">https://partsportal.app/q/ro4582-v88a</span></p>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 pt-2">
+                                <button onclick="alert('Message copied to clipboard!')" class="flex-1 py-2 bg-white border-2 border-gray-400 font-bold text-xs rounded hover:bg-gray-100 flex items-center justify-center">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5 mr-1"></i> Copy Message
+                                </button>
+                                <button onclick="navigateToScreen('screen-8')" class="flex-1 py-2 bg-emerald-700 text-white font-bold text-xs rounded hover:bg-emerald-800 flex items-center justify-center">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5 mr-1"></i> Open WhatsApp (wa.me)
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SCREEN 8: EXTERNAL SUPPLIER MOBILE FORM -->
+                <div id="screen-8" class="wireframe-screen hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-300 pb-3 gap-2">
+                        <div>
+                            <span class="bg-purple-200 text-purple-800 px-2 py-0.5 text-xs font-bold rounded">External Supplier View (No Login)</span>
+                            <h2 class="text-lg sm:text-xl font-bold mt-1">8. Supplier Response Web Portal (Mobile-First)</h2>
+                        </div>
+                        <span class="text-xs text-purple-700 font-mono">https://partsportal.app/q/ro4582-v88a</span>
+                    </div>
+
+                    <!-- Mobile Wireframe Container Shell -->
+                    <div class="max-w-sm mx-auto border-4 border-gray-800 rounded-3xl p-4 bg-gray-50 shadow-md space-y-4">
+                        <div class="w-12 h-1.5 bg-gray-400 rounded-full mx-auto mb-2"></div>
+                        
+                        <div class="bg-purple-900 text-white p-3 rounded text-center space-y-1">
+                            <h3 class="font-bold text-sm">Quote Response Portal</h3>
+                            <p class="text-[10px] text-purple-200">RO #4582 • AutoParts Express</p>
+                        </div>
+
+                        <!-- Form Items -->
+                        <div class="space-y-4 text-xs">
+                            
+                            <!-- Part 1 Form -->
+                            <div class="bg-white p-3 border-2 border-gray-300 rounded space-y-2">
+                                <span class="font-bold text-gray-800 block border-b pb-1">Part: 52119-02900 (Front Bumper)</span>
+                                
+                                <div>
+                                    <label class="block text-[10px] font-bold text-gray-600">Available in stock?</label>
+                                    <div class="flex space-x-4 mt-1">
+                                        <label class="flex items-center space-x-1"><input type="radio" name="av1" checked> <span>Yes</span></label>
+                                        <label class="flex items-center space-x-1"><input type="radio" name="av1"> <span>No</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-gray-600">Price ($):</label>
+                                        <input type="text" value="420.00" class="w-full p-1 border rounded text-xs">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-gray-600">ETA (Days):</label>
+                                        <input type="text" value="2 Days" class="w-full p-1 border rounded text-xs">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-[10px] font-bold text-gray-600">Attach Photo Evidence:</label>
+                                    <button class="w-full py-1.5 border-2 border-dashed border-gray-400 rounded text-[11px] text-gray-600 flex items-center justify-center">
+                                        <i data-lucide="camera" class="w-3.5 h-3.5 mr-1"></i> Take or Upload Photo
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button onclick="alert('Response submitted to Bodyshop!'); navigateToScreen('screen-9')" class="w-full py-2.5 bg-purple-900 text-white font-bold text-xs rounded hover:bg-purple-950">
+                                Submit Quote Response &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREEN 9: PARTS RECEIVING KANBAN -->
+                <div id="screen-9" class="wireframe-screen hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-300 pb-3 gap-2">
+                        <div>
+                            <span class="internal-pill px-2 py-0.5 text-xs font-bold rounded">Internal View</span>
+                            <h2 class="text-lg sm:text-xl font-bold mt-1">9. Parts Tracking & Receiving Status Board</h2>
+                        </div>
+                        <span class="text-xs text-gray-500">Shop Floor Mobile & Desktop Compatible</span>
+                    </div>
+
+                    <!-- Kanban Status Columns -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                        
+                        <!-- Col 1: Pending Query -->
+                        <div class="bg-gray-100 p-2 border-2 border-gray-300 rounded space-y-2">
+                            <div class="font-bold text-xs border-b pb-1 flex justify-between">
+                                <span>Pending Query</span>
+                                <span class="bg-gray-300 px-1.5 rounded">1</span>
+                            </div>
+                            <div class="bg-white p-2 border rounded shadow-sm text-xs space-y-1">
+                                <span class="font-mono font-bold block">53111-02B10</span>
+                                <p class="text-gray-600 text-[11px]">Grille Radiator Upper</p>
+                                <span class="text-[10px] text-gray-400 block">RO #4582</span>
+                            </div>
+                        </div>
+
+                        <!-- Col 2: Quoted -->
+                        <div class="bg-gray-100 p-2 border-2 border-gray-300 rounded space-y-2">
+                            <div class="font-bold text-xs border-b pb-1 flex justify-between">
+                                <span>Quoted</span>
+                                <span class="bg-gray-300 px-1.5 rounded">1</span>
+                            </div>
+                            <div class="bg-white p-2 border rounded shadow-sm text-xs space-y-1">
+                                <span class="font-mono font-bold block">81110-02S50</span>
+                                <p class="text-gray-600 text-[11px]">Headlight Assembly</p>
+                                <span class="text-[10px] text-emerald-700 font-bold block">$310.00 • City Lights</span>
+                            </div>
+                        </div>
+
+                        <!-- Col 3: Ordered / In Transit -->
+                        <div class="bg-gray-100 p-2 border-2 border-gray-300 rounded space-y-2">
+                            <div class="font-bold text-xs border-b pb-1 flex justify-between">
+                                <span>In Transit</span>
+                                <span class="bg-gray-300 px-1.5 rounded">1</span>
+                            </div>
+                            <div class="bg-white p-2 border border-blue-400 rounded shadow-sm text-xs space-y-2">
+                                <span class="font-mono font-bold block">52119-02900</span>
+                                <p class="text-gray-600 text-[11px]">Front Bumper Cover</p>
+                                <button onclick="alert('Receiving Dialog Opened: Upload Photo & Verify Condition')" class="w-full py-1 bg-blue-600 text-white font-bold text-[10px] rounded">
+                                    Receive & Check
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Col 4: Received OK -->
+                        <div class="bg-gray-100 p-2 border-2 border-gray-300 rounded space-y-2">
+                            <div class="font-bold text-xs border-b pb-1 flex justify-between">
+                                <span>Received OK</span>
+                                <span class="bg-gray-300 px-1.5 rounded">2</span>
+                            </div>
+                            <div class="bg-white p-2 border border-emerald-400 rounded shadow-sm text-xs space-y-1">
+                                <span class="font-mono font-bold block">76801-02190</span>
+                                <p class="text-gray-600 text-[11px]">Trunk Trim</p>
+                                <span class="text-[10px] text-gray-500 block">Recv: Oct 05 • Photo OK</span>
+                            </div>
+                        </div>
+
+                        <!-- Col 5: Flagged / Issue -->
+                        <div class="bg-gray-100 p-2 border-2 border-gray-300 rounded space-y-2">
+                            <div class="font-bold text-xs border-b pb-1 flex justify-between text-red-800">
+                                <span>Issue / Flagged</span>
+                                <span class="bg-red-200 px-1.5 rounded">1</span>
+                            </div>
+                            <div class="bg-red-50 p-2 border-2 border-red-400 rounded shadow-sm text-xs space-y-1">
+                                <span class="font-mono font-bold text-red-900 block">53111-02B10</span>
+                                <p class="text-red-800 text-[11px]">Grille Upper</p>
+                                <span class="bg-red-200 text-red-800 px-1 text-[9px] font-bold rounded">DAMAGED</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SCREEN 10: RO CLOSURE -->
+                <div id="screen-10" class="wireframe-screen hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-300 pb-3 gap-2">
+                        <div>
+                            <span class="external-pill-ccc px-2 py-0.5 text-xs font-bold rounded">CCC ONE Final Sync Stage</span>
+                            <h2 class="text-lg sm:text-xl font-bold mt-1">10. Repair Order Final Closure & Sync</h2>
+                        </div>
+                        <span class="text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-1 rounded">All Parts Received</span>
+                    </div>
+
+                    <!-- Final Summary Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        
+                        <div class="border-2 border-gray-300 p-3 rounded bg-gray-50 space-y-2 text-xs">
+                            <h3 class="font-bold border-b pb-1">Suppliers Summary</h3>
+                            <div>• AutoParts Express: 3 Parts ($840.00)</div>
+                            <div>• City Lights Depot: 1 Part ($310.00)</div>
+                            <strong class="block pt-1 border-t">Total Cost: $1,150.00</strong>
+                        </div>
+
+                        <div class="border-2 border-gray-300 p-3 rounded bg-gray-50 space-y-2 text-xs">
+                            <h3 class="font-bold border-b pb-1">Evidence Photos</h3>
+                            <div class="flex space-x-2">
+                                <div class="w-12 h-12 bg-gray-300 border rounded flex items-center justify-center text-[10px]">Photo 1</div>
+                                <div class="w-12 h-12 bg-gray-300 border rounded flex items-center justify-center text-[10px]">Photo 2</div>
+                                <div class="w-12 h-12 bg-gray-300 border rounded flex items-center justify-center text-[10px]">Photo 3</div>
+                            </div>
+                        </div>
+
+                        <div class="border-2 border-gray-300 p-3 rounded bg-gray-50 space-y-2 text-xs">
+                            <h3 class="font-bold border-b pb-1">CCC ONE Rewrite Status</h3>
+                            <span class="text-emerald-700 font-bold block">Ready for automated estimate update.</span>
+                            <p class="text-gray-500 text-[11px]">Assigned suppliers and final part values will be overwritten into CCC ONE.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Action Bar -->
+                    <div class="p-4 bg-emerald-50 border-2 border-emerald-400 rounded flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div>
+                            <strong class="text-emerald-900 text-sm block">Confirm RO Closure & Execute CCC ONE Sync</strong>
+                            <span class="text-xs text-emerald-800">This action finalizes the parts lifecycle for RO #4582.</span>
+                        </div>
+                        <button onclick="navigateToScreen('screen-11')" class="w-full sm:w-auto px-5 py-2.5 bg-emerald-800 text-white font-bold text-xs rounded hover:bg-emerald-900 shadow-sm whitespace-nowrap">
+                            Confirm Closure & Sync &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SCREEN 11: FINAL REPORT -->
+                <div id="screen-11" class="wireframe-screen hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-300 pb-3 gap-2">
+                        <div>
+                            <span class="internal-pill px-2 py-0.5 text-xs font-bold rounded">Export / Report View</span>
+                            <h2 class="text-lg sm:text-xl font-bold mt-1">11. Comprehensive Final Report (Template)</h2>
+                        </div>
+                        <div class="flex space-x-2 w-full sm:w-auto">
+                            <button onclick="alert('Wireframe simulation: PDF generated and downloaded.')" class="w-full sm:w-auto px-3 py-1.5 bg-black text-white text-xs font-bold rounded flex items-center justify-center">
+                                <i data-lucide="download" class="w-3.5 h-3.5 mr-1"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Printable Template Sheet Preview -->
+                    <div class="max-w-3xl mx-auto border-2 border-gray-400 p-4 sm:p-8 bg-white shadow-lg space-y-6 text-xs overflow-x-auto">
+                        
+                        <!-- Header -->
+                        <div class="flex flex-col sm:flex-row justify-between items-start border-b-2 border-black pb-4 gap-2">
+                            <div>
+                                <h3 class="font-bold text-base sm:text-lg">[ BODYSHOP REPAIR CENTER ]</h3>
+                                <p class="text-gray-500">Official Parts Traceability & Quality Audit Report</p>
+                            </div>
+                            <div class="text-left sm:text-right">
+                                <span class="font-bold block">RO NUMBER: #4582</span>
+                                <span class="text-gray-500">Date: October 6, 2026</span>
+                            </div>
+                        </div>
+
+                        <!-- Details Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border p-3 bg-gray-50">
+                            <div>
+                                <strong class="block text-gray-700">Vehicle Data:</strong>
+                                <span>2022 Toyota Corolla - Black</span><br>
+                                <span class="font-mono text-[11px]">VIN: 4T1B...8812</span>
+                            </div>
+                            <div>
+                                <strong class="block text-gray-700">Insurance & Owner:</strong>
+                                <span>Client: John Doe</span><br>
+                                <span>Insurance: StateFarm (Claim #99201)</span>
+                            </div>
+                        </div>
+
+                        <!-- Summary Parts Table -->
+                        <div class="space-y-1">
+                            <strong class="block">Final Parts Breakdown & Assigned Suppliers:</strong>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left border-collapse border border-gray-300 min-w-[500px]">
+                                    <thead class="bg-gray-100 font-bold border-b">
+                                        <tr>
+                                            <th class="p-2 border">Part Code</th>
+                                            <th class="p-2 border">Description</th>
+                                            <th class="p-2 border">Supplier</th>
+                                            <th class="p-2 border">Final Cost</th>
+                                            <th class="p-2 border">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="p-2 border font-mono">52119-02900</td>
+                                            <td class="p-2 border">Front Bumper Cover</td>
+                                            <td class="p-2 border">AutoParts Express</td>
+                                            <td class="p-2 border">$420.00</td>
+                                            <td class="p-2 border font-bold text-emerald-700">Received OK</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 border font-mono">81110-02S50</td>
+                                            <td class="p-2 border">Headlight Assembly RH</td>
+                                            <td class="p-2 border">City Lights Depot</td>
+                                            <td class="p-2 border">$310.00</td>
+                                            <td class="p-2 border font-bold text-emerald-700">Received OK</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Photo Evidence Attachment Section -->
+                        <div class="space-y-2 pt-2">
+                            <strong class="block">Receiving Photo Audit Trail:</strong>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                <div class="border p-2 bg-gray-50 text-center space-y-1">
+                                    <div class="h-20 bg-gray-200 border border-dashed rounded flex items-center justify-center text-[10px] text-gray-500">[ Bumper Photo ]</div>
+                                    <span class="text-[10px] text-gray-600 block">Verified Oct 05</span>
+                                </div>
+                                <div class="border p-2 bg-gray-50 text-center space-y-1">
+                                    <div class="h-20 bg-gray-200 border border-dashed rounded flex items-center justify-center text-[10px] text-gray-500">[ Headlight Photo ]</div>
+                                    <span class="text-[10px] text-gray-600 block">Verified Oct 05</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 border-t flex flex-col sm:flex-row justify-between text-[11px] text-gray-500 gap-1">
+                            <span>Report generated by Bodyshop Manager System</span>
+                            <span>Synced to CCC ONE File ID: #88491</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-300 py-3 text-center text-xs text-gray-500 mt-auto">
+        Bodyshop Auto Parts System • Low-Fidelity Interactive Prototype
+    </footer>
+
+    <!-- JavaScript Navigation & Logic -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Switch main top-level tab (Flow Diagram vs Screen Prototypes)
+        function switchMainTab(tab) {
+            const flowView = document.getElementById('view-flow');
+            const screensView = document.getElementById('view-screens');
+            const flowBtn = document.getElementById('tab-flow-btn');
+            const screensBtn = document.getElementById('tab-screens-btn');
+
+            if (tab === 'flow') {
+                flowView.classList.remove('hidden');
+                screensView.classList.add('hidden');
+                
+                flowBtn.className = "flex-1 sm:flex-initial px-2 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold rounded bg-white shadow-sm text-gray-900 border border-gray-300";
+                screensBtn.className = "flex-1 sm:flex-initial px-2 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold rounded text-gray-600 hover:text-gray-900";
+            } else {
+                flowView.classList.add('hidden');
+                screensView.classList.remove('hidden');
+
+                screensBtn.className = "flex-1 sm:flex-initial px-2 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold rounded bg-white shadow-sm text-gray-900 border border-gray-300";
+                flowBtn.className = "flex-1 sm:flex-initial px-2 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold rounded text-gray-600 hover:text-gray-900";
+            }
+        }
+
+        // Navigate directly to a specific wireframe screen
+        function navigateToScreen(screenId) {
+            // First ensure we are on the screens view
+            switchMainTab('screens');
+
+            // Hide all wireframe screens
+            const screens = document.querySelectorAll('.wireframe-screen');
+            screens.forEach(s => s.classList.add('hidden'));
+
+            // Show selected screen
+            const targetScreen = document.getElementById(screenId);
+            if (targetScreen) {
+                targetScreen.classList.remove('hidden');
+            }
+
+            // Sync dropdown selection
+            const selector = document.getElementById('screen-selector');
+            if (selector) {
+                selector.value = screenId;
+            }
+
+            // Scroll smoothly to top of wireframe box
+            window.scrollTo({ top: 120, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
